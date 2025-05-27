@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
+
+
+
+import { v4 } from "uuid";
+
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Make Read-me",
-      description: "Create Read-me and edit her",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Make Github",
-      description: "Create Github and edit her",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Make Index File",
-      description: "Create Index File and edit her",
-      isCompleted: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks") || [])
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+
+  // =============== API =============== 
+  // useEffect(() => {
+  //   const fetchTasks = async () => {
+  //     // chama a API
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/todos?_limit=10",
+  //       {
+  //         method: "GET",
+  //       }
+  //     );
+  //     // pega os dados que ela retorna
+  //     const data = await response.json();
+
+  //     // armazena/persisti no state
+  //     setTasks(data)
+  //   };
+  //   fetchTasks();
+  // }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
@@ -42,16 +54,16 @@ function App() {
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
-      id: tasks.length + 1,
+      id: v4(),
       title,
       description,
       isCompleted: false,
     };
-    setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask]);
   }
 
   return (
-    <div className="w-screen h-screen bg-slate-800 flex justify-center p-6">
+    <div className="w-screen h-screen bg-slate-900 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
         <h1 className="text-3xl font-bold text-center text-slate-100">
           Task Manager
