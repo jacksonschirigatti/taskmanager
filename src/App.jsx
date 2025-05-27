@@ -8,8 +8,9 @@ import Tasks from "./components/Tasks";
 import { v4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState(
+  const [tasks, setTasks] = useState( () => {
     JSON.parse(localStorage.getItem("tasks") || [])
+  }
   );
 
   useEffect(() => {
