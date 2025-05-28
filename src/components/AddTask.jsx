@@ -28,7 +28,7 @@ function AddTask({ onAddTaskSubmit, }) {
           }
           onAddTaskSubmit(title, description);
         }}
-        className="cursor-pointer bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
+        className="cursor-pointer dark:bg-gray-800 text-white px-4 py-2 rounded-md font-medium"
       >
         Insert
       </button>
