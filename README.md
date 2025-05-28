@@ -15,9 +15,7 @@
 
 ## 🚀 Demonstração
 
-![Demonstração do TaskManager](https://raw.githubusercontent.com/jacksonschirigatti/taskmanager/main/public/demo.gif)
-
-> *Nota: Substitua o link acima por um GIF ou imagem real da aplicação, se disponível.*
+![Demonstração do TaskManager](https://media.discordapp.net/attachments/795811826188156958/1377366998236790865/taskmanager.gif?ex=6838b47a&is=683762fa&hm=b39de73a68fcb7d417d3c5933a6cae7ec0e96f0a41296cc610d71d9bc789b1bb&=)
 
 ## 🛠️ Tecnologias Utilizadas
 
